@@ -1,9 +1,9 @@
-import GradientImage from '@/assets/images/Gradient.svg'
-import FooterImage from '@/assets/images/copearte.avif'
-import { Button } from '@/components/button'
 import React, { useState } from 'react'
 import { FaCheck, FaChevronDown, FaChevronUp } from 'react-icons/fa'
 import { Link } from 'react-scroll'
+import GradientImage from '../assets/images/Gradient.svg'
+import FooterImage from '../assets/images/copearte.avif'
+import { Button } from '../components/button'
 
 interface FooterSectionProps {
 	title: string

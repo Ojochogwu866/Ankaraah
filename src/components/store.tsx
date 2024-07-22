@@ -1,6 +1,6 @@
-import StoreImage from '@/assets/images/store.avif'
-import { Button } from '@/components/button'
 import React from 'react'
+import StoreImage from '../assets/images/store.avif'
+import { Button } from '../components/button'
 
 export const StoreLocator: React.FC = () => {
 	return (

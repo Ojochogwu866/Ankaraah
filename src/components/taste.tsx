@@ -1,12 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-import fabric from '@/assets/images/fabric.jpg'
-import print from '@/assets/images/print.avif'
-import hat from '@/assets/images/sunhat.webp'
-import tote from '@/assets/images/tote-bagwebp.webp'
 import React, { useEffect, useRef, useState } from 'react'
+import fabric from '../assets/images/fabric.jpg'
+import print from '../assets/images/print.avif'
+import hat from '../assets/images/sunhat.webp'
+import tote from '../assets/images/tote-bagwebp.webp'
 
 interface GridItemProps {
 	image: string
@@ -23,9 +19,8 @@ const GridItem: React.FC<GridItemProps> = ({
 	const [lines, setLines] = useState<string[]>([])
 
 	useEffect(() => {
-		if (textRef.current) {
-			const splitIntoLines = () => {
-				// eslint-disable-next-line @typescript-eslint/no-unsafe-call
+		const splitIntoLines = () => {
+			if (textRef.current) {
 				const words = mainText.split(' ')
 				const tempElement = document.createElement('span')
 				tempElement.style.visibility = 'hidden'
@@ -64,11 +59,11 @@ const GridItem: React.FC<GridItemProps> = ({
 				document.body.removeChild(tempElement)
 				setLines(lines)
 			}
-
-			splitIntoLines()
-			window.addEventListener('resize', splitIntoLines)
-			return () => window.removeEventListener('resize', splitIntoLines)
 		}
+
+		splitIntoLines()
+		window.addEventListener('resize', splitIntoLines)
+		return () => window.removeEventListener('resize', splitIntoLines)
 	}, [mainText])
 
 	return (
