@@ -1,8 +1,8 @@
 import React from 'react'
-import Casual from '../assets/images/casual.png'
-import Coperate from '../assets/images/copearte.avif'
-import Women from '../assets/images/ladies.jpg'
-import Men from '../assets/images/men.png'
+import Casual from '../../assets/images/casual.png'
+import Coperate from '../../assets/images/copearte.avif'
+import Women from '../../assets/images/ladies.jpg'
+import Men from '../../assets/images/men.png'
 
 interface CategoryCardProps {
 	image: string

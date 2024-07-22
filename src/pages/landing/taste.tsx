@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
-import fabric from '../assets/images/fabric.jpg'
-import print from '../assets/images/print.avif'
-import hat from '../assets/images/sunhat.webp'
-import tote from '../assets/images/tote-bagwebp.webp'
+import fabric from '../../assets/images/fabric.jpg'
+import print from '../../assets/images/print.avif'
+import hat from '../../assets/images/sunhat.webp'
+import tote from '../../assets/images/tote-bagwebp.webp'
 
 interface GridItemProps {
 	image: string

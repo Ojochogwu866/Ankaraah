@@ -1,7 +1,7 @@
 import React from 'react'
-import HeroImage1 from '../assets/anker-1.png'
-import HeroImage2 from '../assets/anker-2.png'
-import { Button } from './button'
+import HeroImage1 from '../../assets/anker-1.png'
+import HeroImage2 from '../../assets/anker-2.png'
+import { Button } from '../../components/button'
 
 export const Hero: React.FC = () => {
 	return (

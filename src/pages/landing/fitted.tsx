@@ -1,6 +1,6 @@
 import React from 'react'
-import Fit from '../assets/images/sewing.avif'
-import { Button } from '../components/button'
+import Fit from '../../assets/images/sewing.avif'
+import { Button } from '../../components/button'
 
 export const Fitted: React.FC = () => {
 	return (

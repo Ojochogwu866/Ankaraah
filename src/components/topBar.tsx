@@ -14,23 +14,14 @@ export const TopBar: React.FC<TopBarProps> = ({ logoSrc, cartItemCount }) => {
 		setIsSidebarOpen(!isSidebarOpen)
 	}
 
-	const menuItems = [
-		'Coperate',
-		'Men',
-		'Women',
-		'Kids',
-		'Owambe',
-		'Bags',
-		'Hats',
-		'Fabrics',
-	]
+	const menuItems = ['Coperate', 'Men', 'Women', 'Fashion', 'Fabrics']
 
 	const linkClasses =
 		'inline-block text-xl font-semibold text-gray-700 hover:text-gray-900 relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gray-900 after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100'
 
 	return (
 		<>
-			<header className="fixed top-0 z-30 flex h-[100px] w-full items-center justify-between bg-white px-10 py-16">
+			<header className="fixed top-0 z-30 flex h-[100px] w-full items-center justify-between bg-white px-4 py-7 md:px-10 md:py-16">
 				{' '}
 				<div className="flex items-center">
 					<button
@@ -47,7 +38,7 @@ export const TopBar: React.FC<TopBarProps> = ({ logoSrc, cartItemCount }) => {
 				</div>
 				<div className="flex items-center">
 					<Link
-						to="/account"
+						to="/user-auth"
 						className="mx-1 rounded-full p-2 text-gray-700 hover:bg-gray-100"
 					>
 						<FiUser className="h-6 w-6" />
@@ -78,8 +69,7 @@ export const TopBar: React.FC<TopBarProps> = ({ logoSrc, cartItemCount }) => {
 					isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
 				}`}
 			>
-				<div className="flex h-[100px] items-center justify-between px-6">
-					<span className="text-xl font-bold">Menu</span>
+				<div className="flex h-[100px] items-center justify-start px-3">
 					<button
 						onClick={toggleSidebar}
 						className="rounded-full p-2 text-gray-700 hover:bg-gray-100"
@@ -87,6 +77,7 @@ export const TopBar: React.FC<TopBarProps> = ({ logoSrc, cartItemCount }) => {
 					>
 						<FiX className="h-6 w-6" />
 					</button>
+					<span className="text-base font-bold text-black">Close</span>
 				</div>
 				<div className="flex h-[calc(100vh-280px)] flex-col">
 					<nav className="flex-grow overflow-y-auto px-6 py-4">
@@ -116,10 +107,10 @@ export const TopBar: React.FC<TopBarProps> = ({ logoSrc, cartItemCount }) => {
 							Contact Us
 						</Link>
 					</nav>
-					<div className="border-t border-gray-200 px-6 py-4">
+					<div className="mt-5 flex flex-col gap-y-4 border-t border-gray-200 px-6 py-4">
 						<Link
 							to="/stores"
-							className={`${linkClasses} mb-4 flex items-center`}
+							className={`flex items-center gap-2 text-base font-normal text-black`}
 							onClick={toggleSidebar}
 						>
 							<FiMapPin className="mr-2 h-5 w-5" />
@@ -127,7 +118,7 @@ export const TopBar: React.FC<TopBarProps> = ({ logoSrc, cartItemCount }) => {
 						</Link>
 						<Link
 							to="/account"
-							className={`${linkClasses} flex items-center`}
+							className={`flex items-center gap-2 text-base font-normal text-black`}
 							onClick={toggleSidebar}
 						>
 							<FiUser className="mr-2 h-5 w-5" />
