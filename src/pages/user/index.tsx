@@ -72,6 +72,9 @@ const AuthenticatedUserPage = () => {
 		<div className="min-h-screen bg-white font-urbanist">
 			<TopBar logoSrc={''} cartItemCount={0} />
 			<div className="container mx-auto max-w-6xl px-4 py-16 md:px-0">
+				<h1 className="mt-[100px] text-center text-3xl font-bold text-gray-900">
+					Hi Ojochogqu
+				</h1>
 				<SecondaryNav />
 				<Routes>
 					<Route index element={<Overview />} />

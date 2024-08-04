@@ -13,11 +13,11 @@ const SecondaryNav = () => {
 	return (
 		<nav className="relative mb-20 mt-[100px] border-b-[2px] border-gray-300">
 			<ul className="flex justify-center gap-x-[50px]">
-				{['', 'orders', 'profile', 'address', 'preferences'].map((path) => (
+				{['', 'profile', 'orders', 'address', 'preferences'].map((path) => (
 					<li key={path} className="relative flex justify-center gap-x-[50px]">
 						<Link
 							to={path}
-							className={`block px-4 py-4 text-gray-700 hover:text-gray-900 ${
+							className={`block px-4 py-4 font-medium uppercase tracking-wider text-gray-700 hover:text-gray-900 ${
 								activeLink === path ? 'font-bold' : ''
 							}`}
 							onClick={() => setActiveLink(path)}
