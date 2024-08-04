@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
@@ -114,10 +115,6 @@ const MyOrders: React.FC = () => {
 											variant="transparent"
 											size="small"
 											className="flex items-center space-x-1"
-											onClick={(e) => {
-												e.stopPropagation()
-												setSelectedOrder(order)
-											}}
 										>
 											<FaSearchPlus />
 											<span>View Details</span>

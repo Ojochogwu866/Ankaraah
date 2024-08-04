@@ -1,16 +1,30 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import React, { useState } from 'react'
 import { FaApple, FaFacebook, FaGoogle } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
 import { Button } from '../../components/button'
 import { InputField } from '../../components/input'
 
 const UserAuth: React.FC = () => {
 	const [showRegister, setShowRegister] = useState(false)
+	const navigate = useNavigate()
+
+	const handleSignIn = (e: React.FormEvent) => {
+		e.preventDefault()
+		navigate('/my-account')
+	}
+
+	const handleSignUp = (e: React.FormEvent) => {
+		e.preventDefault()
+		navigate('/my-account')
+	}
 
 	return (
 		<div className="mx-auto mt-32 flex min-h-screen max-w-7xl font-urbanist text-black">
 			<div className="w-1/2 bg-white px-32 py-16">
 				<h2 className="mb-6 text-2xl font-semibold">Login</h2>
-				<form>
+				<form onSubmit={handleSignIn}>
 					<InputField type="email" placeholder="Email" label="Email Address" />
 					<InputField type="password" placeholder="Password" label="Password" />
 					<div className="mb-4 flex items-center justify-between">
@@ -43,7 +57,6 @@ const UserAuth: React.FC = () => {
 					Terms of Service apply.
 				</p>
 			</div>
-
 			<div className="w-1/2 border-l-[0.5px] border-gray-700 bg-white px-32 py-16">
 				{!showRegister ? (
 					<div>
@@ -67,7 +80,7 @@ const UserAuth: React.FC = () => {
 				) : (
 					<div>
 						<h2 className="mb-6 text-2xl font-semibold">New Account</h2>
-						<form>
+						<form onSubmit={handleSignUp}>
 							<InputField type="text" placeholder="Name" label="Full Name" />
 							<InputField
 								type="email"
