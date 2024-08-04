@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.tsx'
 import './index.css'
 import Auth from './pages/auth'
+import AuthenticatedUserPage from './pages/user/index.tsx'
 
 const router = createBrowserRouter([
 	{
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
 	{
 		path: '/user-auth',
 		element: <Auth />,
+	},
+	{
+		path: '/my-account/*',
+		element: <AuthenticatedUserPage />,
 	},
 ])
 // eslint-disable-next-line @typescript-eslint/no-unsafe-call
