@@ -1,4 +1,3 @@
-```markdown
 # An-ker: African Fashion E-commerce
 
 An-ker is a frontend web application for an akrah store specializing in native African dresses and accessories. Built with React and TypeScript, it offers a user-friendly interface for browsing and purchasing authentic African fashion items.
@@ -82,4 +81,3 @@ Please read CONTRIBUTING.md for details on our code of conduct and the process f
 ## License
 
 This project is licensed under the MIT License - see the LICENSE.md file for details.
-```
