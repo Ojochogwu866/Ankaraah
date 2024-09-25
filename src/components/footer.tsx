@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React, { useState } from 'react'
 import { FaCheck, FaChevronDown, FaChevronUp, FaEnvelope } from 'react-icons/fa'
 import { useLocation } from 'react-router-dom'
@@ -74,6 +76,7 @@ const NonHomeFooter = () => {
 export const Footer: React.FC = () => {
 	const location = useLocation()
 	const isHomePage = location.pathname === '/'
+	const isMyAccountPage = location.pathname.startsWith('/my-account')
 
 	const benefits = [
 		'Early access to new collections',
@@ -118,83 +121,93 @@ export const Footer: React.FC = () => {
 			style={{ backgroundImage: `url(${GradientImage})` }}
 		>
 			<div className="container mx-auto">
-				{isHomePage ? (
-					<div className="flex flex-col md:flex-row">
-						<div className="relative h-[700px] w-full overflow-hidden md:w-1/2">
-							<img
-								src={FooterImage}
-								alt="An-Ker Fashion"
-								className="h-full w-full object-cover transition-transform duration-500 ease-in-out hover:scale-105"
-							/>
-							<div className="absolute inset-0 bg-gradient-to-l from-white via-white/50 to-transparent"></div>
-						</div>
-						<div className="h-[700px] w-full bg-white px-8 py-12 md:w-1/2 md:px-16">
-							<h2 className="mb-4 text-sm font-bold uppercase tracking-wider text-gray-800">
-								HOUSE OF AN-KER
-							</h2>
-							<p className="mb-8 text-2xl font-light text-gray-800">
-								Join our global community for exclusive benefits and updates
-							</p>
-							<ul className="mb-8 space-y-3 text-sm text-gray-700">
-								{benefits.map((benefit, index) => (
-									<li key={index} className="flex items-start">
-										<FaCheck className="mr-2 mt-1 text-gray-700" />
-										<span>{benefit}</span>
-									</li>
-								))}
-							</ul>
-							<form className="space-y-5">
-								<div className="relative">
-									<input
-										type="email"
-										placeholder="Email"
-										className="w-full border-b border-gray-300 bg-transparent p-2 text-sm text-gray-700 outline-none transition-all focus:border-gray-500"
+				{!isMyAccountPage && (
+					<>
+						{isHomePage ? (
+							<div className="flex flex-col md:flex-row">
+								<div className="relative h-[700px] w-full overflow-hidden md:w-1/2">
+									<img
+										src={FooterImage}
+										alt="An-Ker Fashion"
+										className="h-full w-full object-cover transition-transform duration-500 ease-in-out hover:scale-105"
 									/>
-									<div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gray-500 transition-all duration-300"></div>
+									<div className="absolute inset-0 bg-gradient-to-l from-white via-white/50 to-transparent"></div>
 								</div>
-								<div className="flex space-x-4">
-									<div className="relative w-1/2">
-										<input
-											type="text"
-											placeholder="First Name"
-											className="w-full border-b border-gray-300 bg-transparent p-2 text-sm text-gray-700 outline-none transition-all focus:border-gray-500"
-										/>
-										<div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gray-500 transition-all duration-300"></div>
-									</div>
-									<div className="relative w-1/2">
-										<input
-											type="text"
-											placeholder="Last Name"
-											className="w-full border-b border-gray-300 bg-transparent p-2 text-sm text-gray-700 outline-none transition-all focus:border-gray-500"
-										/>
-										<div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gray-500 transition-all duration-300"></div>
-									</div>
+								<div className="h-[700px] w-full bg-white px-8 py-12 md:w-1/2 md:px-16">
+									<h2 className="mb-4 text-sm font-bold uppercase tracking-wider text-gray-800">
+										HOUSE OF AN-KER
+									</h2>
+									<p className="mb-8 text-2xl font-light text-gray-800">
+										Join our global community for exclusive benefits and updates
+									</p>
+									<ul className="mb-8 space-y-3 text-sm text-gray-700">
+										{benefits.map((benefit, index) => (
+											<li key={index} className="flex items-start">
+												<FaCheck className="mr-2 mt-1 text-gray-700" />
+												<span>{benefit}</span>
+											</li>
+										))}
+									</ul>
+									<form className="space-y-5">
+										<div className="relative">
+											<input
+												type="email"
+												placeholder="Email"
+												className="w-full border-b border-gray-300 bg-transparent p-2 text-sm text-gray-700 outline-none transition-all focus:border-gray-500"
+											/>
+											<div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gray-500 transition-all duration-300"></div>
+										</div>
+										<div className="flex space-x-4">
+											<div className="relative w-1/2">
+												<input
+													type="text"
+													placeholder="First Name"
+													className="w-full border-b border-gray-300 bg-transparent p-2 text-sm text-gray-700 outline-none transition-all focus:border-gray-500"
+												/>
+												<div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gray-500 transition-all duration-300"></div>
+											</div>
+											<div className="relative w-1/2">
+												<input
+													type="text"
+													placeholder="Last Name"
+													className="w-full border-b border-gray-300 bg-transparent p-2 text-sm text-gray-700 outline-none transition-all focus:border-gray-500"
+												/>
+												<div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gray-500 transition-all duration-300"></div>
+											</div>
+										</div>
+										<div className="flex items-start">
+											<input
+												type="checkbox"
+												id="policy"
+												className="mr-2 mt-1"
+											/>
+											<label htmlFor="policy" className="text-xs text-gray-600">
+												I accept An-Ker's privacy policy and agree to receive
+												personalized marketing communications. Unsubscribing is
+												possible at any time. For details on data processing,
+												see our privacy policy.
+											</label>
+										</div>
+										<div className="captcha">
+											<p className="text-sm text-gray-600">
+												Captcha Protection
+											</p>
+										</div>
+										<Button
+											variant="primary"
+											size="large"
+											onClick={() => console.log('Subscribe clicked')}
+											className="transform transition-transform duration-300 ease-in-out hover:scale-105"
+										>
+											Subscribe
+										</Button>
+									</form>
 								</div>
-								<div className="flex items-start">
-									<input type="checkbox" id="policy" className="mr-2 mt-1" />
-									<label htmlFor="policy" className="text-xs text-gray-600">
-										I accept An-Ker's privacy policy and agree to receive
-										personalized marketing communications. Unsubscribing is
-										possible at any time. For details on data processing, see
-										our privacy policy.
-									</label>
-								</div>
-								<div className="captcha">
-									<p className="text-sm text-gray-600">Captcha Protection</p>
-								</div>
-								<Button
-									variant="primary"
-									size="large"
-									onClick={() => console.log('Subscribe clicked')}
-									className="transform transition-transform duration-300 ease-in-out hover:scale-105"
-								>
-									Subscribe
-								</Button>
-							</form>
-						</div>
-					</div>
-				) : (
-					<NonHomeFooter />
+							</div>
+						) : (
+							<NonHomeFooter />
+						)}
+					</>
 				)}
 				<div className="px-4 py-8">
 					<div className="flex flex-wrap">

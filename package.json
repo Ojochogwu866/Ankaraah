@@ -46,8 +46,8 @@
 		"vite": "^5.3.4"
 	},
 	"optionalDependencies": {
-        "@rollup/rollup-linux-x64-gnu": "4.9.5"
-    },
+		"@rollup/rollup-linux-x64-gnu": "4.9.5"
+	},
 	"lint-staged": {
 		"*.{js,ts,tsx}": [
 			"prettier --write",
