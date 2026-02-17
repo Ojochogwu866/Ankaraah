@@ -8,6 +8,7 @@ import App from './App.tsx'
 import './index.css'
 import Auth from './pages/auth'
 import AuthenticatedUserPage from './pages/user/index.tsx'
+import { destroyProduct7, initProduct7 } from './product7.ts'
 
 const router = createBrowserRouter([
 	{
@@ -29,3 +30,11 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 		<RouterProvider router={router} />
 	</React.StrictMode>
 )
+
+void initProduct7()
+
+if (import.meta.hot) {
+	import.meta.hot.dispose(() => {
+		destroyProduct7()
+	})
+}
