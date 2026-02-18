@@ -63,7 +63,7 @@ const getProduct7BaseUrls = () => {
 
 	return {
 		feedbackUrl: `${base}/feedback`,
-		changelogUrl: `${base}/changelog`,
+		changelogBaseUrl: `${base}/changelog`,
 		helpUrl: `${base}/help-docs`,
 		roadmapUrl: `${base}/roadmap`,
 	}
@@ -157,7 +157,7 @@ export const initProduct7 = async (): Promise<void> => {
 		position: 'bottom-left',
 		triggerText: "What's New",
 		showBadge: true,
-		changelogUrl: urls.changelogUrl,
+		changelogBaseUrl: urls.changelogBaseUrl,
 	})
 	changelogWidget.mount()
 
