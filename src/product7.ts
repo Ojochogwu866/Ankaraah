@@ -54,6 +54,20 @@ declare global {
 
 const SURVEY_DISMISSED_KEY = 'product7-survey-shown'
 const PRODUCT7_DUMMY_USER_KEY = 'product7-dummy-user-id'
+const PRODUCT7_SUBDOMAIN = 'zed'
+
+const getProduct7BaseUrls = () => {
+	const isDev = import.meta.env.DEV
+	const baseDomain = isDev ? 'staging.product7.io' : 'product7.io'
+	const base = `https://${PRODUCT7_SUBDOMAIN}.${baseDomain}`
+
+	return {
+		feedbackUrl: `${base}/feedback`,
+		changelogUrl: `${base}/changelog`,
+		helpUrl: `${base}/help-docs`,
+		roadmapUrl: `${base}/roadmap`,
+	}
+}
 
 const buildDummyUserContext = (): UserContext => {
 	let dummyUserId = 'guest_user'
@@ -71,7 +85,7 @@ const buildDummyUserContext = (): UserContext => {
 			window.localStorage.setItem(PRODUCT7_DUMMY_USER_KEY, dummyUserId)
 		}
 	} catch {
-		// Fall back to a static ID when localStorage is unavailable.
+		/* empty */
 	}
 
 	return {
@@ -88,7 +102,7 @@ const markSurveyAsShown = (): void => {
 	try {
 		window.sessionStorage.setItem(SURVEY_DISMISSED_KEY, '1')
 	} catch {
-		// Ignore storage failures in strict browser privacy modes.
+		/* empty */
 	}
 }
 
@@ -121,6 +135,8 @@ export const initProduct7 = async (): Promise<void> => {
 		return
 	}
 
+	const urls = getProduct7BaseUrls()
+
 	const sdk = FeedbackSDK.create({
 		workspace,
 		boardId: boardId || 'general',
@@ -133,6 +149,7 @@ export const initProduct7 = async (): Promise<void> => {
 	const feedbackWidget = sdk.createWidget('button', {
 		position: 'bottom-right',
 		displayMode: 'panel',
+		feedbackUrl: urls.feedbackUrl,
 	})
 	feedbackWidget.mount()
 
@@ -140,6 +157,7 @@ export const initProduct7 = async (): Promise<void> => {
 		position: 'bottom-left',
 		triggerText: "What's New",
 		showBadge: true,
+		changelogUrl: urls.changelogUrl,
 	})
 	changelogWidget.mount()
 
